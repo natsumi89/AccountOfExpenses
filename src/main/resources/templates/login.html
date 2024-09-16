@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>login-page</title>
+</head>
+<body>
+<div class="main">
+    <div class="register-form">
+        <form th:action="@{/login-to-my-page}" method="post">
+            <div class="register-username">
+                <input type="text" name="username" required>
+            </div>
+            <div class="register-email">
+                <input type="email" name="email" required>
+            </div>
+            <div class="register-password">
+                <input type="password" name="password" required>
+            </div>
+            <button type="submit">登録</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

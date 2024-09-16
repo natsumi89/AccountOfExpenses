@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+</head>
+<body>
+<div class="main">
+    <form th:action="@{/register-user-information}" method="post">
+    <div class="register-form">
+        <div class="register-username">
+            <span>ユーザ名</span>
+            <input type="text" name="register-username" placeholder="mimi">
+        </div>
+        <div class="register-email">
+            <span>ユーザ名</span>
+            <input type="text" name="register-email" placeholder="mimi@kkk.com">
+        </div>
+        <div class="register-password">
+            <span>パスワード</span>
+            <input type="password" name="register-username">
+        </div>
+        <button>登録</button>
+    </div>
+    </form>
+</div>
+
+</body>
+</html>
