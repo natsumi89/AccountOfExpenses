@@ -26,25 +26,32 @@ public class UserController {
 
     @PostMapping("/register-user-information")
     public String insert(@Valid UserForm userForm, BindingResult bindingResult, Model model) {
+        // バリデーションエラーの確認
         if (bindingResult.hasErrors()) {
             model.addAttribute("userForm", userForm);
+            System.out.println("Validation errors: " + bindingResult.getAllErrors());
             return "register";
         }
 
+        // 重複チェック
         User user = userService.findByEmail(userForm.getEmail());
         if (user != null) {
             model.addAttribute("error", "このメールアドレスはすでに登録されています");
+            System.out.println("Email already exists: " + userForm.getEmail());
             return "register";
         }
 
+        // ユーザー登録
         User newUser = new User();
         newUser.setUsername(userForm.getUsername());
         newUser.setEmail(userForm.getEmail());
-        newUser.setPassword(userForm.getPassword()); // パスワード暗号化が必要
+        newUser.setPassword(userForm.getPassword()); // パスワードの暗号化が必要
+        System.out.println("Registering user: " + newUser.getUsername() + ", " + newUser.getEmail());
 
         userService.insert(newUser);
         return "redirect:/login";
     }
+
 
     @PostMapping("/login-to-my-page")
     public String loginSuccessRedirect(UserForm userForm, Model model) {

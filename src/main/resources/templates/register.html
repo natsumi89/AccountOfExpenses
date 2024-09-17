@@ -7,23 +7,24 @@
 <body>
 <div class="main">
     <form th:action="@{/register-user-information}" method="post">
-    <div class="register-form">
-        <div class="register-username">
-            <span>ユーザ名</span>
-            <input type="text" name="register-username" placeholder="mimi">
+        <div class="register-form">
+            <div class="register-username">
+                <span>ユーザ名</span>
+                <input type="text" name="username" placeholder="mimi" required>
+            </div>
+            <div class="register-email">
+                <span>メールアドレス</span>
+                <input type="email" name="email" placeholder="mimi@kkk.com" required>
+            </div>
+            <div class="register-password">
+                <span>パスワード</span>
+                <input type="password" name="password" required>
+            </div>
+            <button type="submit">登録</button>
         </div>
-        <div class="register-email">
-            <span>ユーザ名</span>
-            <input type="text" name="register-email" placeholder="mimi@kkk.com">
-        </div>
-        <div class="register-password">
-            <span>パスワード</span>
-            <input type="password" name="register-username">
-        </div>
-        <button>登録</button>
-    </div>
     </form>
 </div>
+
 
 </body>
 </html>
