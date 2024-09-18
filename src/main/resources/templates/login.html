@@ -9,12 +9,15 @@
     <div class="register-form">
         <form th:action="@{/login-to-my-page}" method="post">
             <div class="register-username">
+                <span>ユーザーネーム</span>
                 <input type="text" name="username" required>
             </div>
             <div class="register-email">
+                <span>メールアドレス</span>
                 <input type="email" name="email" required>
             </div>
             <div class="register-password">
+                <span>パスワード</span>
                 <input type="password" name="password" required>
             </div>
             <button type="submit">登録</button>

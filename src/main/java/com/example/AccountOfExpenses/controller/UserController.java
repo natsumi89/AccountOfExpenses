@@ -8,10 +8,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 
 @Controller
@@ -91,6 +88,21 @@ public class UserController {
             return "redirect:/login";
         }
         model.addAttribute("id", id);
-        return "my-page";
+        return "mypage";
     }
+
+    @PostMapping("/logout")
+    public String logout() {
+        Integer userId = (Integer) session.getAttribute("id");
+        session.invalidate();
+        return "redirect:/top";
+    }
+
+    @GetMapping("/top")
+    public String top() {
+        Integer userId = (Integer) session.getAttribute("id");
+        session.invalidate();
+        return "top";
+    }
+
 }

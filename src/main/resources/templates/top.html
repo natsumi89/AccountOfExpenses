@@ -9,6 +9,8 @@
     <div class="top">
         <div class="subject">
             <span>ようこそ！</span>
+            <span th:if="${session.username == null">ゲストさん</span>
+            <span th:unless="${session.username == null}"><span th:text="${session.username}"><span>さん</span></span></span>
         </div>
 
     </div>
